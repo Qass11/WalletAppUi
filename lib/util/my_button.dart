@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -21,12 +21,12 @@ class MyButton extends StatelessWidget {
           height: 90,
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Colors.grey[100],
+            // color: Colors.grey[100],
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.shade400,
-                blurRadius: 40,
+                color: Colors.white,
+                blurRadius: 30,
                 spreadRadius: 10,
               ),
             ],
@@ -36,7 +36,7 @@ class MyButton extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 12,
+          height: 4,
         ),
         // Text
         Text(
