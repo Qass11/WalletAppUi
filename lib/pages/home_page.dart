@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:walletappui/util/my_button.dart';
 import 'package:walletappui/util/my_card.dart';
+import 'package:walletappui/util/my_list_title.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,6 +21,42 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.pink,
+        child: Icon(
+          Icons.monetization_on,
+          size: 32,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.grey[200],
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.home,
+                  size: 32,
+                  color: Colors.pink[200],
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.settings,
+                  size: 32,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -103,7 +140,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            SizedBox(height: 25),
+            SizedBox(height: 20),
 
             // 3 buttons -> send + pay + bill
             Padding(
@@ -133,59 +170,26 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
+            SizedBox(height: 40),
+
             // Column -> states + transactions
             Padding(
-              padding: const EdgeInsets.all(25.0),
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Column(
                 children: [
                   // Statistics
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          // Icon
-                          Container(
-                            height: 80,
-                            padding: EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: Colors.grey[100],
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Image.asset('lib/icons/statistics.png'),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Statistics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                'Payments and Icon',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.grey[600],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Icon(Icons.arrow_forward_ios),
-                    ],
+                  MyListTitle(
+                    iconImagePath: 'lib/icons/statistics.png',
+                    titleTitle: 'Statistics',
+                    titleSubTitle: 'Payment and Income',
                   ),
+
                   // Transaction
+                  MyListTitle(
+                    iconImagePath: 'lib/icons/transaction.png',
+                    titleTitle: 'Transactions',
+                    titleSubTitle: 'Transaction History',
+                  ),
                 ],
               ),
             ),
